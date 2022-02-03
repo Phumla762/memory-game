@@ -1,33 +1,48 @@
-import React, { Component } from 'react';
-// set state of this component to be visible incase i wnat it to change overtime.
+import React  from 'react';
+
 // when the button is clicked (handleClick) will make this specific component ot be visible and go ot the next component of the game.
 //at the beginning of the game the begin button to start game. 
 
-export class NewGame extends Component {
-state = {
-    visible : true,
+ class NewGame extends React.Component {
+     state = {};
+
+handleChange = (e) => {
+    this.setState({ name: e.target.value});
 }
 
 handleClick = (e) => {
-    this.setState({visible: !this.state.visible}, () => {
-        this.props.play(true);
-    });
+    e.preventDefault();
+    this.props.name(this.state.name, false);
 };
 
 render(){
-    const {visible} = this.state;
     return (
-        <div className="menu-item">
+        <div className="wrapper">
+        <div className='login'>
+            <form>
+            <div className="form-group">
+                <label>Name</label>
+                <input
+                type="name"
+                className="form-control"
+                onChange ={this.handleChange}
+                />
+                <small className='form-text text-muted'>
+                    This is a memory game
+                </small>
+            </div>
+
             <button
-            className="btn btn-play"
             onClick={this.handleClick}
-            style={{visibility: visible ? "visible" : "hidden"}} >
+            className="btn btn-primary" >
                 Begin
             </button>
+            </form>
         </div>
-    );
-}
-}
+        </div>
+        );
+        }
+        }
 
 
 

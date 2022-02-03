@@ -10,6 +10,7 @@ import young from './young.png';
 
 import cube from './cube.jpg';
 
+// the images are stored ina na array to have easier access
 export let images = [
     {
         name: "angel",

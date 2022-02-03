@@ -1,13 +1,13 @@
 import React from 'react';
-import Images from './Images';
+import Card from './Card';
 
 // this component is to display of the cards of images. 
-
-export class BoardGame extends React.Component{
+ 
+class BoardGame extends React.Component{
     render(){
         return (
             <div className="game">
-            <Images endGame={this.props.endGame} />
+            <Card endGame={this.props.endGame} />
             </div>
         );
     }

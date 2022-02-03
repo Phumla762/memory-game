@@ -10,8 +10,8 @@ class Card extends React.Component{
         if(character.getAttribute("check") === "found"){
             return;
         } 
-// if the selected image does not equal in value or quality then teh image should not display as a match or be stored in array of characters as a match.
-        if ( character !== this.characters[0]){
+       // if the selected image does not equal in value or quality then teh image should not display as a match or be stored in array of characters as a match.
+        if (character !== this.characters[0]){
             this.change(character);
             this.characters.push(character);
         } else {
@@ -35,6 +35,7 @@ class Card extends React.Component{
         }
 
         // all the pictures in with the class name "image-blank are to be accessed. then be reset if still not matched up coz theyre incorrectly matched or dont have the attributes.
+        // when the imaages are reset the user should be notified to have won the game or need help.
         let allPics = document.getElementsByClassName("image-blank");
         if(allPics.length < 1) {
             this.props.endGame(true);
@@ -44,8 +45,15 @@ class Card extends React.Component{
                 reset[i].setAttribute("check", "false");
                 this.characters = [];
             }
+            if (reset){
+                this.reset("You've won!");
+            } else{
+                this.reset("Help ?");
+            }
         }
-    }
+    };
+
+    
     // the checName function calls that the first selected "image/character" and the second selected one have attributes that are to return true and display the attribute with "name" as it is an identifier.
     // the two characters are to be found true and show that the attribute exists.
     checkName = (character1, character2) => {
