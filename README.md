@@ -22,4 +22,4 @@ feed/
   
 profile/
   index.js
-  
+  "# memory-game" 
